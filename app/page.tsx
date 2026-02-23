@@ -1,65 +1,62 @@
-import Image from "next/image";
+const socialLinks = [
+  {
+    title: "Qiita",
+    href: "https://qiita.com/habuhabu",
+  },
+  {
+    title: "Zenn",
+    href: "https://zenn.dev/habuhabu",
+  },
+  {
+    title: "X",
+    href: "https://x.com/habuhabu__",
+  },
+  {
+    title: "GitHub",
+    href: "https://github.com/Takeru-Habu",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main className="relative min-h-screen overflow-hidden px-6 py-12 md:px-10">
+      <div className="pointer-events-none absolute -top-24 -left-16 h-80 w-80 rounded-full bg-gradient-to-br from-amber-200 to-orange-300 opacity-70 blur-2xl" />
+      <div className="pointer-events-none absolute right-[-6rem] bottom-[-7rem] h-96 w-96 rounded-full bg-gradient-to-br from-sky-200 to-slate-300 opacity-70 blur-2xl" />
+
+      <section className="mx-auto mt-10 w-full max-w-4xl rounded-[2rem] border border-white/70 bg-white/70 p-7 shadow-[0_30px_80px_rgba(40,43,48,0.12)] backdrop-blur md:mt-16 md:p-10">
+        <h1 className="text-4xl leading-tight font-semibold text-zinc-900 md:text-6xl">
+          Takeru Habu
+        </h1>
+
+        <p className="mt-7 max-w-2xl text-base leading-8 text-zinc-700 md:text-lg">
+          The University of Osaka, School of Engineering Science, B3.
+          <br />
+          Intern at Money Forward.
+        </p>
+
+        <div className="mt-8 grid gap-3 md:grid-cols-3">
+          {socialLinks.map((item) => (
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              key={item.title}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-2xl border border-white/80 bg-white/80 px-5 py-4 transition hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(33,36,42,0.12)]"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <div className="flex items-center justify-between">
+                <p className="text-base font-semibold text-zinc-900">
+                  {item.title}
+                </p>
+                <span className="text-zinc-500 transition group-hover:translate-x-0.5">
+                  ↗
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        <p className="mt-8 text-sm text-zinc-700">Mail: takeruhabu@gmail.com</p>
+      </section>
+    </main>
   );
 }
